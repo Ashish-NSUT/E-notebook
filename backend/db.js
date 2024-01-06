@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
+const env = require('dotenv')
 
-const mongoURI = `mongodb+srv://ashishdubey9911:${process.env.PASS}@cluster0.avnh6tq.mongodb.net/e-notebook`;
+ 
+env.config();
+
+console.log(process.env,"/n");
+const mongoURI = process.env.URI;
 
 const connectToMongo = ()=>{
     mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })

@@ -15,7 +15,7 @@ const NotesState = (props)=>{
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "auth-token" : localStorage.getItem('token')
+            "auth-token" : sessionStorage.getItem('token')
           },
           body: JSON.stringify({title,description,tag}), 
         });
@@ -33,7 +33,7 @@ const NotesState = (props)=>{
           method: "GET",
           headers: {
             "Content-Type": "application/json",
-            "auth-token" : localStorage.getItem('token')
+            "auth-token" : sessionStorage.getItem('token')
           }
         });
 
@@ -50,7 +50,7 @@ const NotesState = (props)=>{
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
-            "auth-token" : localStorage.getItem('token')
+            "auth-token" : sessionStorage.getItem('token')
           }
         });
         const json = await response.json();
@@ -67,7 +67,7 @@ const NotesState = (props)=>{
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
-            "auth-token" : localStorage.getItem('token')
+            "auth-token" : sessionStorage.getItem('token')
           },
           body: JSON.stringify({title,description,tag}), 
         });

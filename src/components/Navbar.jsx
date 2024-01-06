@@ -9,8 +9,8 @@ export default function Navbar() {
 
 // clearing the local storage after logout
     const handleLogout = ()=>{
-        localStorage.removeItem('token');
-        localStorage.removeItem("user");
+        sessionStorage.removeItem('token');
+        sessionStorage.removeItem("user");
         navigate('/');
     }
 
@@ -34,7 +34,7 @@ export default function Navbar() {
                     
                 </ul>
                 <form className="d-flex" role="search">
-                {!localStorage.getItem('token')?<div><Link className="btn btn-primary mx-1" to="/login" role="button">Login</Link>
+                {!sessionStorage.getItem('token')?<div><Link className="btn btn-primary mx-1" to="/login" role="button">Login</Link>
                 <Link className="btn btn-primary mx-1" to="/signup" role="button">Signup</Link> </div>: 
                 <div><Link className="btn btn-primary mx-1" to="/login" role="button" onClick={handleLogout}>Logout</Link>
                 <Link className="btn btn-primary mx-1" to="/user" role="button"><i className="fa-solid fa-user"></i></Link></div>}

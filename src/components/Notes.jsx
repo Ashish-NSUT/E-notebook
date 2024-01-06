@@ -15,7 +15,7 @@ export default function Notes(props) {
 
   // useeffect for starting mount so that fectch is not rendered again and again adter every render
   useEffect(() => {
-    if(localStorage.getItem("token")) {
+    if(sessionStorage.getItem("token")) {
       fetchNotes();
     }
     else {

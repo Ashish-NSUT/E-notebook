@@ -25,7 +25,7 @@ export default function Signup(props) {
         console.log(json);
 
         if (json.success) {
-            localStorage.setItem("token", json.authToken);
+            sessionStorage.setItem("token", json.authToken);
             props.showAlert("Created Account Successfully", "success");
             navigate("/");
         }

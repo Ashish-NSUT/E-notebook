@@ -3,11 +3,11 @@ import React,{useEffect,useState} from 'react'
 export default function User() {
 
   useEffect(() => {
-    if(!localStorage.getItem("user")) {
+    if(!sessionStorage.getItem("user")) {
       fetchuser();
     }
     else {
-      setUser(JSON.parse(localStorage.getItem("user")));
+      setUser(JSON.parse(sessionStorage.getItem("user")));
     }
 
     // eslint-disable-next-line
@@ -21,11 +21,11 @@ export default function User() {
     const response = await fetch("http://localhost:5000/api/auth/getuser", {
       method: "POST",
       headers: {
-        "auth-token" : localStorage.getItem("token")
+        "auth-token" : sessionStorage.getItem("token")
       },
     });
     const json = await response.json();
-    localStorage.setItem("user", JSON.stringify(json));// store data in local storage
+    sessionStorage.setItem("user", JSON.stringify(json));// store data in local storage
     setUser(json);
 
   }
